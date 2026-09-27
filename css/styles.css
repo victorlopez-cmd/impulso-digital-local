@@ -1,0 +1,973 @@
+/* =========================================================
+   IMPULSO DIGITAL LOCAL
+   Diseño accesible basado en metodología POUR
+   ========================================================= */
+
+:root {
+
+    --tamano-base: 18px;
+
+    --fondo: #ffffff;
+    --fondo-alternativo: #f4f7f6;
+
+    --texto: #17201d;
+    --texto-secundario: #3f4b47;
+
+    --primario: #14634f;
+    --primario-oscuro: #0c493a;
+
+    --borde: #ccd6d2;
+    --foco: #005fcc;
+
+    --ancho-maximo: 1180px;
+
+}
+
+
+/* =========================================================
+   GENERAL
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+    font-size: var(--tamano-base);
+
+}
+
+
+body {
+
+    margin: 0;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    line-height: 1.6;
+
+    color: var(--texto);
+
+    background: var(--fondo);
+
+}
+
+
+p {
+    max-width: 70ch;
+}
+
+
+a {
+    color: inherit;
+}
+
+
+/* =========================================================
+   ACCESIBILIDAD
+   ========================================================= */
+
+.skip-link {
+
+    position: absolute;
+
+    left: 1rem;
+    top: -100px;
+
+    z-index: 1000;
+
+    padding: 0.8rem 1.2rem;
+
+    background: #ffffff;
+
+    color: #000000;
+
+    border: 3px solid var(--foco);
+
+    font-weight: bold;
+
+}
+
+
+.skip-link:focus {
+    top: 1rem;
+}
+
+
+a:focus-visible,
+button:focus-visible {
+
+    outline: 4px solid var(--foco);
+
+    outline-offset: 4px;
+
+}
+
+
+/* =========================================================
+   ENCABEZADO
+   ========================================================= */
+
+.encabezado {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+    background: var(--fondo);
+
+    border-bottom:
+        1px solid var(--borde);
+
+}
+
+
+.barra-superior {
+
+    max-width: var(--ancho-maximo);
+
+    margin: auto;
+
+    min-height: 84px;
+
+    padding: 1rem 1.5rem;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 1.5rem;
+
+}
+
+
+.logo {
+
+    color: var(--primario-oscuro);
+
+    font-size: 1.25rem;
+
+    font-weight: 800;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+}
+
+
+/* =========================================================
+   MENÚ
+   ========================================================= */
+
+.menu {
+
+    display: flex;
+
+    list-style: none;
+
+    gap: 1.5rem;
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+
+.menu a {
+
+    padding: 0.7rem 0.3rem;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+}
+
+
+.menu a:hover {
+
+    text-decoration: underline;
+
+    text-decoration-thickness: 3px;
+
+}
+
+
+/* =========================================================
+   CONTROLES DE ACCESIBILIDAD
+   ========================================================= */
+
+.accesibilidad {
+
+    display: flex;
+
+    gap: 0.5rem;
+
+    flex-wrap: wrap;
+
+}
+
+
+.accesibilidad button {
+
+    min-height: 44px;
+
+    padding: 0.6rem 0.8rem;
+
+    border: 2px solid var(--primario);
+
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    color: var(--primario-oscuro);
+
+    font-size: 0.9rem;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+
+.accesibilidad button:hover {
+
+    background: var(--fondo-alternativo);
+
+}
+
+
+/* =========================================================
+   PORTADA
+   ========================================================= */
+
+.hero {
+
+    max-width: var(--ancho-maximo);
+
+    margin: auto;
+
+    padding: 4rem 1.5rem;
+
+    display: grid;
+
+    grid-template-columns:
+        1.1fr 0.9fr;
+
+    align-items: center;
+
+    gap: 4rem;
+
+}
+
+
+.etiqueta {
+
+    color: var(--primario);
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.05em;
+
+}
+
+
+.hero h1 {
+
+    margin:
+        0.5rem 0
+        1.5rem;
+
+    max-width: 750px;
+
+    font-size:
+        clamp(
+            2.5rem,
+            4.2vw,
+            3.8rem
+        );
+
+    line-height: 1.08;
+
+}
+
+
+.mensaje-principal {
+
+    font-size: 1.35rem;
+
+    font-weight: 700;
+
+}
+
+
+.hero-contenido > p:not(.etiqueta) {
+
+    color: var(--texto-secundario);
+
+}
+
+
+/* =========================================================
+   IMAGEN PRINCIPAL
+   ========================================================= */
+
+.hero-imagen {
+
+    width: 100%;
+
+}
+
+
+.imagen-principal {
+
+    width: 100%;
+
+    height: 430px;
+
+    display: block;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    border-radius: 20px;
+
+    border: 1px solid var(--borde);
+
+}
+
+
+/* =========================================================
+   BOTONES PRINCIPALES
+   ========================================================= */
+
+.boton-principal,
+.boton-secundario {
+
+    display: inline-block;
+
+    margin-top: 1rem;
+
+    padding:
+        0.9rem
+        1.5rem;
+
+    border-radius: 10px;
+
+    background: var(--primario);
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-weight: 800;
+
+    line-height: 1.4;
+
+}
+
+
+.boton-principal:hover,
+.boton-secundario:hover {
+
+    background: var(--primario-oscuro);
+
+    text-decoration: underline;
+
+}
+
+
+/* =========================================================
+   ¿QUÉ NECESITAS HACER?
+   ========================================================= */
+
+.acciones {
+
+    padding:
+        4.5rem
+        1.5rem;
+
+    background: var(--fondo-alternativo);
+
+    text-align: center;
+
+}
+
+
+.acciones h2,
+.seccion h2 {
+
+    margin-bottom: 0.5rem;
+
+    font-size:
+        clamp(
+            2rem,
+            4vw,
+            3rem
+        );
+
+    line-height: 1.2;
+
+}
+
+
+.acciones > p,
+.introduccion {
+
+    margin-left: auto;
+
+    margin-right: auto;
+
+    color: var(--texto-secundario);
+
+    font-size: 1.1rem;
+
+}
+
+
+.rejilla-acciones {
+
+    max-width: 950px;
+
+    margin:
+        2.5rem auto 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 1.25rem;
+
+}
+
+
+.tarjeta {
+
+    min-height: 170px;
+
+    padding: 1.5rem;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    justify-content: center;
+
+    gap: 0.5rem;
+
+    border:
+        2px solid var(--borde);
+
+    border-radius: 14px;
+
+    background: #ffffff;
+
+    color: var(--texto);
+
+    font: inherit;
+
+    text-align: left;
+
+    cursor: pointer;
+
+}
+
+
+.tarjeta:hover {
+
+    border-color: var(--primario);
+
+    transform: translateY(-2px);
+
+}
+
+
+/*
+   Iconos decorativos pequeños.
+   Se usan píxeles para que A+ aumente
+   principalmente el texto y no los iconos.
+*/
+
+.tarjeta span {
+
+    font-size: 24px;
+
+}
+
+
+.tarjeta strong {
+
+    font-size: 1.2rem;
+
+    line-height: 1.3;
+
+}
+
+
+.tarjeta small {
+
+    font-size: 0.95rem;
+
+    color: var(--texto-secundario);
+
+}
+
+
+/* =========================================================
+   SECCIONES
+   ========================================================= */
+
+.seccion {
+
+    max-width: var(--ancho-maximo);
+
+    margin: auto;
+
+    padding:
+        4.5rem
+        1.5rem;
+
+}
+
+
+/* =========================================================
+   CÓMO FUNCIONA
+   ========================================================= */
+
+.como-funciona > .etiqueta,
+.como-funciona > h2,
+.como-funciona > .introduccion {
+
+    text-align: center;
+
+    margin-left: auto;
+
+    margin-right: auto;
+
+}
+
+
+.pasos {
+
+    margin-top: 2.5rem;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 1.25rem;
+
+}
+
+
+.pasos article {
+
+    padding: 1.5rem;
+
+    border:
+        1px solid var(--borde);
+
+    border-radius: 14px;
+
+    background: #ffffff;
+
+}
+
+
+.numero {
+
+    width: 48px;
+
+    height: 48px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--primario);
+
+    color: #ffffff;
+
+    font-size: 1.25rem;
+
+    font-weight: 800;
+
+}
+
+
+.pasos h3 {
+
+    line-height: 1.3;
+
+}
+
+
+/* =========================================================
+   BENEFICIOS
+   ========================================================= */
+
+.seccion-alternativa {
+
+    max-width: none;
+
+    padding-left:
+        max(
+            1.5rem,
+            calc(
+                (100% - var(--ancho-maximo))
+                / 2 + 1.5rem
+            )
+        );
+
+    padding-right:
+        max(
+            1.5rem,
+            calc(
+                (100% - var(--ancho-maximo))
+                / 2 + 1.5rem
+            )
+        );
+
+    background: var(--fondo-alternativo);
+
+}
+
+
+.contenido-centrado {
+
+    text-align: center;
+
+}
+
+
+.contenido-centrado p {
+
+    margin-left: auto;
+
+    margin-right: auto;
+
+}
+
+
+.beneficios {
+
+    margin-top: 2.5rem;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 1.25rem;
+
+}
+
+
+.beneficios article {
+
+    padding: 1.5rem;
+
+    border:
+        1px solid var(--borde);
+
+    border-radius: 14px;
+
+    background: #ffffff;
+
+}
+
+
+/* Iconos más discretos */
+
+.icono-beneficio {
+
+    font-size: 24px;
+
+}
+
+
+.beneficios h3 {
+
+    line-height: 1.3;
+
+}
+
+
+/* =========================================================
+   AYUDA
+   ========================================================= */
+
+.ayuda {
+
+    text-align: center;
+
+}
+
+
+.ayuda p {
+
+    margin-left: auto;
+
+    margin-right: auto;
+
+}
+
+
+/* =========================================================
+   PIE DE PÁGINA
+   ========================================================= */
+
+footer {
+
+    padding:
+        2rem
+        1.5rem;
+
+    background: #17201d;
+
+    color: #ffffff;
+
+    text-align: center;
+
+}
+
+
+footer p {
+
+    margin:
+        0.25rem auto;
+
+}
+
+
+/* =========================================================
+   ALTO CONTRASTE
+   ========================================================= */
+
+body.alto-contraste {
+
+    --fondo: #000000;
+
+    --fondo-alternativo: #111111;
+
+    --texto: #ffffff;
+
+    --texto-secundario: #ffffff;
+
+    --primario: #ffdd00;
+
+    --primario-oscuro: #ffdd00;
+
+    --borde: #ffffff;
+
+    --foco: #00ffff;
+
+    background: #000000;
+
+    color: #ffffff;
+
+}
+
+
+body.alto-contraste .encabezado,
+body.alto-contraste .tarjeta,
+body.alto-contraste .pasos article,
+body.alto-contraste .beneficios article,
+body.alto-contraste .accesibilidad button {
+
+    background: #000000;
+
+    color: #ffffff;
+
+}
+
+
+body.alto-contraste .logo,
+body.alto-contraste .etiqueta {
+
+    color: #ffdd00;
+
+}
+
+
+body.alto-contraste .boton-principal,
+body.alto-contraste .boton-secundario,
+body.alto-contraste .numero {
+
+    background: #ffdd00;
+
+    color: #000000;
+
+}
+
+
+body.alto-contraste .tarjeta small,
+body.alto-contraste .hero-contenido > p,
+body.alto-contraste .introduccion {
+
+    color: #ffffff;
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .barra-superior {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 1rem;
+
+    }
+
+
+    .menu {
+
+        flex-wrap: wrap;
+
+    }
+
+
+    .hero {
+
+        grid-template-columns: 1fr;
+
+        padding-top: 3rem;
+
+    }
+
+
+    .hero-imagen {
+
+        order: -1;
+
+    }
+
+
+    .imagen-principal {
+
+        height: 300px;
+
+    }
+
+
+    .pasos,
+    .beneficios {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+/* =========================================================
+   TELÉFONO
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .menu {
+
+        flex-direction: column;
+
+        gap: 0.25rem;
+
+    }
+
+
+    .accesibilidad {
+
+        flex-direction: row;
+
+        flex-wrap: wrap;
+
+    }
+
+
+    .rejilla-acciones,
+    .pasos,
+    .beneficios {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .hero {
+
+        gap: 2rem;
+
+    }
+
+
+    .hero h1 {
+
+        font-size: 2.5rem;
+
+    }
+
+
+    .imagen-principal {
+
+        height: 260px;
+
+    }
+
+}
+
+
+/* =========================================================
+   REDUCCIÓN DE MOVIMIENTO
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+
+        scroll-behavior: auto;
+
+    }
+
+
+    * {
+
+        transition: none !important;
+
+        animation: none !important;
+
+    }
+
+}
